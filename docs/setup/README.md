@@ -40,7 +40,9 @@ Before deploying petclinic application to IKS cluster, you need to get your work
 
 1. Click `IBM Cloud Shell` link next to your account number on the toolbar. It's on the top-right corner of the screen. This opens `IBM Cloud Shell` window in a new tab of your browser.
 
-1. Store cluster name in environment variable.
+1. Store cluster id in environment variable.
+  Copy the id from the from the line shown in the picture below and set that as the value for the `MYCLUSTER` variable.
+  ![Grab cluster id](images/iks-cluster-id.png)
   ```
   export MYCLUSTER=<your cluster name>
   echo $MYCLUSTER
@@ -56,5 +58,5 @@ In the `IBM Cloud Shell`, clone the repo.
 
   ```bash
   git clone https://github.com/IBM/kubernetes-logging-and-monitoring.git
-  cd hkubernetes-logging-and-monitoring
+  cd kubernetes-logging-and-monitoring/src
   ```
