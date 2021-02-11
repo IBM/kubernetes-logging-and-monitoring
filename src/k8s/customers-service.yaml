@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customers
+  labels:
+    app: spring-petclinic
+spec:
+  strategy:
+    type: Recreate
+
+  selector:
+    matchLabels:
+      app: spring-petclinic
+      tier: customers
+
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic
+        tier: customers
+    spec:
+      containers:
+        - image: leezhang/spring-petclinic-customers-service:latest
+          imagePullPolicy: Always
+          name: customers
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customers-service
+  labels:
+    app: spring-petclinic
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 32003
+  selector:
+    app: spring-petclinic
+    tier: customers
