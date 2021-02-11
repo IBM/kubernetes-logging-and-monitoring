@@ -17,8 +17,8 @@ nav:
       - Introduction: logdna/lab-0/README.md
       - Lab 1. LogDNA Install: logdna/lab-1/README.md
       - Lab 2. Deploy Application: logdna/lab-2/README.md
-      - Lab 3. Analyze Logs: logdna/lab-2/README.md
-      - Lab 4. Log Streaming: logdna/lab-2/README.md
+      - Lab 3. Analyze Logs: logdna/lab-3/README.md
+      - Lab 4. Log Streaming: logdna/lab-4/README.md
   - Monitoring:
     - SysDig:
       - Lab 0. SysDig Install: lab-1/README.md

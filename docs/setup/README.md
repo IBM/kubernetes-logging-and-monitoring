@@ -3,13 +3,13 @@
 
 Follow the steps listed in the section to complete the pre-requesites for the setting up the lab environment.
 
-## Step 1. Sign up for IBM Cloud
+## Step 1: Sign up for IBM Cloud
 
 Ensure you have an IBM Cloud ID
 
 ![Cloud Sign up](../images/ibm-cloud-sign-up.png)
 
-## Step 2. Claim your cluster
+## Step 2: Claim your cluster
 
 TODO: Show the steps to claim the cluster.
 
@@ -21,7 +21,7 @@ Enable private endpoints if the user is creating the cluster.
 
 ![IKS Private Endpoints](images/iks_private_endpoints.png)
 
-## Step 3 - Access IBM Cloud and Kubernetes cluster
+## Step 3: Access IBM Cloud and Kubernetes cluster
 
 Before deploying petclinic application to IKS cluster, you need to get your working environment ready.
 
@@ -40,19 +40,20 @@ Before deploying petclinic application to IKS cluster, you need to get your work
 
 1. Click `IBM Cloud Shell` link next to your account number on the toolbar. It's on the top-right corner of the screen. This opens `IBM Cloud Shell` window in a new tab of your browser.
 
-1. Store cluster id in environment variable.
-  Copy the id from the from the line shown in the picture below and set that as the value for the `MYCLUSTER` variable.
-  ![Grab cluster id](images/iks-cluster-id.png)
-  ```
-  export MYCLUSTER=<your cluster name>
-  echo $MYCLUSTER
-  ```
 1. Execute the CLI commands in the `Access` tab of your IKS cluster (see above) sequentially to connect to your cluster.
 
 1. Use CLI command `kubectl config current-context` to verify the connection to your cluster before continue the exercise.
 
+1. Store the `cluster id` in an environment variable.
+  Copy the id from the cluster `Overview` tab as shown in the picture below and set that as the value for the `MYCLUSTER` variable.
+  ![Grab cluster id](images/iks-cluster-id.png)
+  ```
+  export MYCLUSTER=<your cluster id>
+  echo $MYCLUSTER
+  ```
 
-## Step 4 Clone the repo
+
+## Step 4: Clone the repo
 
 In the `IBM Cloud Shell`, clone the repo.
 
