@@ -2,7 +2,7 @@
 
 In this lab, you will deploy the `Petclinic` application into your kubernetes cluster. Check the lab [introduction](lab-0/README.md) to learn more about this application. Logs from the application will be used for analysis in the next set of labs.
 
-## Step 1 - Deploy the Petclinic application
+## Step 1: Deploy the Petclinic application
 
 In the `IBM Cloud Shell`, deploy the sample petclinic application.
 
@@ -56,7 +56,7 @@ In the `IBM Cloud Shell`, deploy the sample petclinic application.
     replicaset.apps/visits-784749c647        1         1         1       52s
     ```
 
-## Step 2 - Deploy Ingress resource
+## Step 2: Deploy Ingress resource
 
 When deployed the sample application to a non-Lite tier IKS cluster, it's possible to expose the application with an external hostname.
 
@@ -141,7 +141,7 @@ When deployed the sample application to a non-Lite tier IKS cluster, it's possib
   ingress.networking.k8s.io/api-ingress created
   ```
 
-## Step 3 - Verify petclinic application
+## Step 3: Verify petclinic application
 
 If everything goes as planned, the `petclinic` application can be accessed at `https://petclinic.<INGRESS_SUBDOMAIN>`. By default, an internal database is used to stored data. Get the application URL by running the comand below. 
 ```bash
@@ -151,7 +151,7 @@ Copy the URL into a new browser window to view the Petclinc application landing 
 
 ![IKS Private Endpoints](images/petclinic-landing.png)
 
-## Step 4 - Deploy MYSQL database to the IKS cluster (Optionally)
+## Step 4: Deploy MYSQL database to the IKS cluster (Optionally)
 
 Instead of running the `petclinic` application on an internal database, you may choose to deploy an instance of `MYSQL` database on the same IKS cluster.
 
@@ -228,7 +228,7 @@ To populate MYSQL database running on the cluster,
   6	Sharon	Jenkins
   ```
 
-## Step 5 - Run sample application on MYSQL database 
+## Step 5: Run sample application on MYSQL database 
 
 `MYSQL` database has been successfully deployed in the same IKS cluster. Now, you are goint to run the sample `petclinic` application on MYSQL database instead of the internal database.
 
@@ -249,7 +249,7 @@ To store MYSQL database connection information in `configMap` resource,
   ```
 
 
-## Step 6 - Verify petclinic application
+## Step 6: Verify petclinic application
 
 1. Retrieve `Ingress Subdomain`.
 
