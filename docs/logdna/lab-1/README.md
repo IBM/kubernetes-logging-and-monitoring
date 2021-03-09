@@ -10,7 +10,9 @@ To deploy an instance of `IBM Log Analysis with LogDNA`,
 
 1. Click [here](https://cloud.ibm.com/observe/logging) open the `IBM Cloud Logging` and view the `IBM Log Analysis with LogDNA` instances provisioned under your account.
 
-    !["To create IBM Log Analysis with LogDNA"](images/observability.png)
+    [ ![To create IBM Log Analysis with LogDNA](images/observability.png) ](images/observability.png)
+
+    ![To create IBM Log Analysis with LogDNA](images/observability.png)
 
 1. Select `Create instance` at the top-right corner.
 

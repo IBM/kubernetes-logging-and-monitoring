@@ -9,38 +9,77 @@ Ensure you have an IBM Cloud ID
 
 ![Cloud Sign up](../images/ibm-cloud-sign-up.png)
 
-## Step 2: Claim your cluster
+## Step 2: Claim and Access IBM Cloud and Kubernetes cluster
 
-TODO: Show the steps to claim the cluster.
+Use the IBM Kubernetes cluster provided for the workshop. Alternatively, you can provision a cluster and use it for this lab.
+  Find the private endpoint and VRF enablement requirements [here](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_agent_kube_cluster#config_agent_kube_cluster_step4).
 
-* a Kubernetes cluster running in IBM cloud (IKS)
+1. Login to [IBM Cloud](https://cloud.ibm.com) in a browser and select the appropirate account under which the cluster is provisioned.
 
-Enable private endpoints if the user is creating the cluster.
+1. Navigate to https://cloud.ibm.com/kubernetes/clusters to see a list of available IKS clusters. Select your IKS cluster from the list to open it to land at the cluster `Overview` page. Observe the information under `Summary` and note how the endpoints are enabled.
 
-> Note: it's highly recommended to enable `private endpoints` (or private service endpoint) when you create your Kubernetes cluster in IBM Cloud. The `private endpoints` can also be enabled after the cluster is created. This provides the option to use the `private endpoints` when configuring LogDNA to collect logs from your application deployed to IKS cluster.
+    ![IKS Private Endpoints Enabled](images/iks_private_endpoint-enabled.png)
 
-![IKS Private Endpoints](images/iks_private_endpoints.png)
+## Step 3: Connecting to te=he Kubernetes cluster
 
-## Step 3: Access IBM Cloud and Kubernetes cluster
-
-Before deploying petclinic application to IKS cluster, you need to get your working environment ready.
-
-1. Login to [IBM Cloud](https://cloud.ibm.com) in a browser.
-
-1. Navigate to https://cloud.ibm.com/kubernetes/clusters to see a list of available IKS clusters.
-
-1. Select your IKS cluster from the list to open it to land at the cluster `Overview` page.
-
-1. Ensure that the `Private service endpoint URL` is enabled at the bottom of the page.
-![IKS Private Endpoints Enabled](images/iks_private_endpoint-enabled.png)
-
-1. In the left pane, select `Access` option. This page provides CLI commands to setup your terminal environment to work with your IKS cluster. It also has a link to start a `IBM Cloud Shell`.
+1. In the left pane, select `Access` tab. This page provides CLI commands to setup your terminal environment to work with your IKS cluster.
 
     ![Access IKS Cluster](images/access_iks_cluster.png)
 
-1. Click `IBM Cloud Shell` link next to your account number on the toolbar. It's on the top-right corner of the screen. This opens `IBM Cloud Shell` window in a new tab of your browser.
+1. Click `IBM Cloud Shell` link next to your account number on the toolbar. It's on the top-right corner of the screen. 
+
+    ![Access IKS Cluster](images/cloud-shell-link.png)
+
+    This opens `IBM Cloud Shell` window in a new tab of your browser. Note that additions terminal sessions can be opened by clicking the `+` icon.
+
+    ![Access IKS Cluster](images/cloud-shell-session.png)
+
 
 1. Execute the CLI commands in the `Access` tab of your IKS cluster (see above) sequentially to connect to your cluster.
+
+    ```
+    $ ibmcloud login -a cloud.ibm.com -r us-south -g Default
+    API endpoint: https://cloud.ibm.com
+
+    Email> rj@gmail.com
+
+    Password> 
+    Authenticating...
+    OK
+
+    Select an account:
+    1. Rojan J's Account (6ec1c2ec26xx49d6b5ad8b632e629c3d)
+    2. Amce Corp (2c426324dd934f71a2a053c9185791ff) <-> 6272168
+    Enter a number> 2
+    Targeted account Amce Corp (2c426324cc934f71a2a053c9185791ff) <-> 6272168
+
+    Targeted resource group Default
+
+    Targeted region us-south
+
+                          
+    API endpoint:      https://cloud.ibm.com   
+    Region:            us-south   
+    User:              rj@gmail.com   
+    Account:           Amce Corp (2c426324cc934f71a2a053c9185791ff) <-> 6272168   
+    Resource group:    Default   
+    CF API endpoint:      
+    Org:                  
+    Space:                
+    ```
+
+    ```
+    $ ibmcloud ks cluster config --cluster c13mk2cd0pfrniovo4r0
+
+    ....
+    OK
+    The configuration for c13mk2cd0pfrniovo4r0 was downloaded successfully.
+
+    Added context for c13mk2cd0pfrniovo4r0 to the current kubeconfig file.
+    You can now execute 'kubectl' commands against your cluster. For example, run 'kubectl get nodes'.
+    If you are accessing the cluster for the first time, 'kubectl' commands might fail for a few seconds while RBAC synchronizes.
+
+    ```
 
 1. Use CLI command `kubectl config current-context` to verify the connection to your cluster before continue the exercise.
 
@@ -49,7 +88,15 @@ Before deploying petclinic application to IKS cluster, you need to get your work
   ![Grab cluster id](images/iks-cluster-id.png)
   ```
   export MYCLUSTER=<your cluster id>
+  ```
+  Verify the cluster id set correctly.
+  ```
   echo $MYCLUSTER
+  ```
+  ```
+  $ echo $MYCLUSTER
+  
+  c13mk2cd0pfrniovo4r0
   ```
 
 
