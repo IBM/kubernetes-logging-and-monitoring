@@ -268,7 +268,7 @@ To create an alert in LogDNA,
 
 1. Select `ALERTS` tab.
 
-1. Select `Add Prset` button.
+1. Select `Add Preset` button.
 
 1. Enter `customer-api-called` as the `Preset name`.
 
@@ -333,32 +333,14 @@ To trigger the LogDNA alert, you'll generate additional application log entries.
 
 1. Go back to `IBM Cloud Shell` terminal.
 
-1. Verify that the Pod name was stored in the environment variable `API_GATEWAY_POD`.
+1. Copy/paste and Execute the following command in the pod. The script sends 3 requests to customer microservice.
 
     ```
-    echo $API_GATEWAY_POD
-    ```
-
-  > Note: please revisit section `Generate application log entries`.
-
-1. Get into the `API-Gateway' pod.
-
-    ```
-    kubectl exec $API_GATEWAY_POD -ti sh
-    ```
-
-1. The prompt change shows that you are in the `API-Gateway` pod now.
-
-1. Copy/paste and Execute the following command in the pod. The script sends 100 requests to each service component.
-
-    ```
-    for i in `seq 1 3` ; do wget -q -O - http://customers-service/owners ; done
-    ```
-
-1. Exit the pod.
-
-    ```
-    exit
+    for i in `seq 1 3` ; \
+    do \
+      echo -e "\n ======= Loop count: $i ========= \nCalling customer owners:" && \
+      wget -q -O - "${HOST}/api/customer/owners" && \
+    done
     ```
 
 1. Verify you received an email from `LogDNA Alerts`.
@@ -433,32 +415,14 @@ To test the exclusion rule,
 
 1. Go to `IBM Cloud Shell` terminal.
 
-1. Verify that the Pod name was stored in the environment variable `API_GATEWAY_POD`.
+1. Copy/paste and Execute the following command in the pod. 
 
     ```
-    echo $API_GATEWAY_POD
-    ```
-
-  > Note: please revisit section `Generate application log entries`.
-
-1. Get into the `API-Gateway' pod.
-
-    ```
-    kubectl exec $API_GATEWAY_POD -ti sh
-    ```
-
-1. The prompt change shows that you are in the `API-Gateway` pod now.
-
-1. Copy/paste and Execute the following command in the pod. The script sends 100 requests to each service component.
-
-    ```
-    for i in `seq 1 3` ; do wget -q -O - http://customers-service/owners ; done
-    ```
-
-1. Exit the pod.
-
-    ```
-    exit
+    for i in `seq 1 3` ; \
+    do \
+      echo -e "\n ======= Loop count: $i ========= \nCalling customer owners:" && \
+      wget -q -O - "${HOST}/api/customer/owners" && \
+    done
     ```
 
 1. Go back to LogDNA UI, you should receive no new log entry by looking at the timestamp of the last log entry. This confirms that the newly generated log entries do not count against your data usage.
