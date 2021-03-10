@@ -1,0 +1,338 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    deprecated.daemonset.template.generation: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"DaemonSet","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"logdna-agent","app.kubernetes.io/name":"logdna-agent","app.kubernetes.io/version":"2.2.2"},"name":"logdna-agent","namespace":"ibm-observe"},"spec":{"selector":{"matchLabels":{"app":"logdna-agent"}},"template":{"metadata":{"labels":{"app":"logdna-agent","app.kubernetes.io/instance":"logdna-agent","app.kubernetes.io/name":"logdna-agent","app.kubernetes.io/version":"2.2.2"}},"spec":{"containers":[{"env":[{"name":"LOGDNA_AGENT_KEY","valueFrom":{"secretKeyRef":{"key":"logdna-agent-key","name":"logdna-agent-key"}}},{"name":"LOGDNA_HOST","value":"logs.us-south.logging.cloud.ibm.com"},{"name":"POD_APP_LABEL","valueFrom":{"fieldRef":{"fieldPath":"metadata.labels['app.kubernetes.io/name']"}}},{"name":"POD_NAME","valueFrom":{"fieldRef":{"fieldPath":"metadata.name"}}},{"name":"NODE_NAME","valueFrom":{"fieldRef":{"fieldPath":"spec.nodeName"}}},{"name":"NAMESPACE","valueFrom":{"fieldRef":{"fieldPath":"metadata.namespace"}}}],"image":"icr.io/ext/logdna-agent:2.2.2","imagePullPolicy":"Always","name":"logdna-agent","resources":{"limits":{"memory":"500Mi"},"requests":{"cpu":"20m"}},"securityContext":{"capabilities":{"add":["DAC_READ_SEARCH"],"drop":["all"]}},"volumeMounts":[{"mountPath":"/var/log","name":"varlog"},{"mountPath":"/var/data","name":"vardata"},{"mountPath":"/var/lib/docker/containers","name":"varlibdockercontainers","readOnly":true},{"mountPath":"/mnt","name":"mnt","readOnly":true},{"mountPath":"/etc/os-release","name":"osrelease"},{"mountPath":"/etc/logdna-hostname","name":"logdnahostname"}]}],"serviceAccountName":"logdna-agent","volumes":[{"hostPath":{"path":"/var/log"},"name":"varlog"},{"hostPath":{"path":"/var/data"},"name":"vardata"},{"hostPath":{"path":"/var/lib/docker/containers"},"name":"varlibdockercontainers"},{"hostPath":{"path":"/mnt"},"name":"mnt"},{"hostPath":{"path":"/etc/os-release"},"name":"osrelease"},{"hostPath":{"path":"/etc/hostname"},"name":"logdnahostname"}]}},"updateStrategy":{"rollingUpdate":{"maxUnavailable":"100%"},"type":"RollingUpdate"}}}
+  creationTimestamp: "2021-02-15T17:41:35Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/instance: logdna-agent
+    app.kubernetes.io/name: logdna-agent
+    app.kubernetes.io/version: 2.2.2
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deprecated.daemonset.template.generation: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/version: {}
+      f:spec:
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:app.kubernetes.io/instance: {}
+              f:app.kubernetes.io/name: {}
+              f:app.kubernetes.io/version: {}
+          f:spec:
+            f:containers:
+              k:{"name":"logdna-agent"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"LOGDNA_AGENT_KEY"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:secretKeyRef:
+                        .: {}
+                        f:key: {}
+                        f:name: {}
+                  k:{"name":"LOGDNA_HOST"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"NAMESPACE"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                  k:{"name":"NODE_NAME"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                  k:{"name":"POD_APP_LABEL"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                  k:{"name":"POD_NAME"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources:
+                  .: {}
+                  f:limits:
+                    .: {}
+                    f:memory: {}
+                  f:requests:
+                    .: {}
+                    f:cpu: {}
+                f:securityContext:
+                  .: {}
+                  f:capabilities:
+                    .: {}
+                    f:add: {}
+                    f:drop: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/etc/logdna-hostname"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/etc/os-release"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/mnt"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"/var/data"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"/var/lib/docker/containers"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"/var/log"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:serviceAccount: {}
+            f:serviceAccountName: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"logdnahostname"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"mnt"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"osrelease"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"vardata"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"varlibdockercontainers"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"varlog"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+        f:updateStrategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxUnavailable: {}
+          f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-02-15T17:41:35Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:currentNumberScheduled: {}
+        f:desiredNumberScheduled: {}
+        f:numberAvailable: {}
+        f:numberReady: {}
+        f:observedGeneration: {}
+        f:updatedNumberScheduled: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-02-15T17:41:42Z"
+  name: logdna-agent
+  namespace: ibm-observe
+  resourceVersion: "1844"
+  selfLink: /apis/apps/v1/namespaces/ibm-observe/daemonsets/logdna-agent
+  uid: 24a855aa-1d9d-4c5e-bc4f-c2a2f9e25add
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: logdna-agent
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: logdna-agent
+        app.kubernetes.io/instance: logdna-agent
+        app.kubernetes.io/name: logdna-agent
+        app.kubernetes.io/version: 2.2.2
+    spec:
+      containers:
+      - env:
+        - name: LOGDNA_AGENT_KEY
+          valueFrom:
+            secretKeyRef:
+              key: logdna-agent-key
+              name: logdna-agent-key
+        - name: LOGDNA_HOST
+          value: logs.us-south.logging.cloud.ibm.com
+        - name: POD_APP_LABEL
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.labels['app.kubernetes.io/name']
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: icr.io/ext/logdna-agent:2.2.2
+        imagePullPolicy: Always
+        name: logdna-agent
+        resources:
+          limits:
+            memory: 500Mi
+          requests:
+            cpu: 20m
+        securityContext:
+          capabilities:
+            add:
+            - DAC_READ_SEARCH
+            drop:
+            - all
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/log
+          name: varlog
+        - mountPath: /var/data
+          name: vardata
+        - mountPath: /var/lib/docker/containers
+          name: varlibdockercontainers
+          readOnly: true
+        - mountPath: /mnt
+          name: mnt
+          readOnly: true
+        - mountPath: /etc/os-release
+          name: osrelease
+        - mountPath: /etc/logdna-hostname
+          name: logdnahostname
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: logdna-agent
+      serviceAccountName: logdna-agent
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /var/log
+          type: ""
+        name: varlog
+      - hostPath:
+          path: /var/data
+          type: ""
+        name: vardata
+      - hostPath:
+          path: /var/lib/docker/containers
+          type: ""
+        name: varlibdockercontainers
+      - hostPath:
+          path: /mnt
+          type: ""
+        name: mnt
+      - hostPath:
+          path: /etc/os-release
+          type: ""
+        name: osrelease
+      - hostPath:
+          path: /etc/hostname
+          type: ""
+        name: logdnahostname
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 100%
+    type: RollingUpdate
+status:
+  currentNumberScheduled: 1
+  desiredNumberScheduled: 1
+  numberAvailable: 1
+  numberMisscheduled: 0
+  numberReady: 1
+  observedGeneration: 1
+  updatedNumberScheduled: 1
