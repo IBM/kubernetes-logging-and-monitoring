@@ -9,7 +9,7 @@ Ensure you have an IBM Cloud ID
 
 ![Cloud Sign up](../images/ibm-cloud-sign-up.png)
 
-## Step 2: Claim and Access IBM Cloud and Kubernetes cluster
+## Step 2: Claim and Access IBM Cloud Kubernetes cluster
 
 Use the IBM Kubernetes cluster provided for the workshop. Alternatively, you can provision a cluster and use it for this lab.
   Find the private endpoint and VRF enablement requirements [here](https://cloud.ibm.com/docs/Log-Analysis-with-LogDNA?topic=Log-Analysis-with-LogDNA-config_agent_kube_cluster#config_agent_kube_cluster_step4).
@@ -20,9 +20,9 @@ Use the IBM Kubernetes cluster provided for the workshop. Alternatively, you can
 
     ![IKS Private Endpoints Enabled](images/iks_private_endpoint-enabled.png)
 
-## Step 3: Connecting to te=he Kubernetes cluster
+## Step 3: Connecting to the Kubernetes cluster
 
-1. In the left pane, select `Access` tab. This page provides CLI commands to setup your terminal environment to work with your IKS cluster.
+1. In the left pane of Kubernetes cluster details page, select the `Access` tab. This page provides CLI commands to setup your IKS cluster using a terminal environment.
 
     ![Access IKS Cluster](images/access_iks_cluster.png)
 
@@ -35,7 +35,7 @@ Use the IBM Kubernetes cluster provided for the workshop. Alternatively, you can
     ![Access IKS Cluster](images/cloud-shell-session.png)
 
 
-1. Execute the CLI commands in the `Access` tab of your IKS cluster (see above) sequentially to connect to your cluster.
+1. Execute the CLI commands listed on the `Access` tab of your IKS cluster details ppage (see above) sequentially to connect to your cluster.
 
     ```
     $ ibmcloud login -a cloud.ibm.com -r us-south -g Default
@@ -95,16 +95,9 @@ Use the IBM Kubernetes cluster provided for the workshop. Alternatively, you can
   ```
   ```
   $ echo $MYCLUSTER
-  
+
   c13mk2cd0pfrniovo4r0
   ```
 
 
-## Step 4: Clone the repo
-
-In the `IBM Cloud Shell`, clone the repo.
-
-  ```bash
-  git clone https://github.com/IBM/kubernetes-logging-and-monitoring.git
-  cd kubernetes-logging-and-monitoring/src
-  ```
+This completes the necessary prereqs for the labs.

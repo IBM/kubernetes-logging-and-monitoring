@@ -12,8 +12,6 @@ To deploy an instance of `IBM Log Analysis with LogDNA`,
 
     [ ![To create IBM Log Analysis with LogDNA](images/observability.png) ](images/observability.png)
 
-    ![To create IBM Log Analysis with LogDNA](images/observability.png)
-
 1. Select `Create instance` at the top-right corner.
 
 1. Select a location, for example `us-east`. (Pick the location where the IKS cluster resides.)
@@ -24,7 +22,7 @@ To deploy an instance of `IBM Log Analysis with LogDNA`,
 
 1. Click the `Create` button to create the new service instance.
 
-    ![Created IBM Log Analysis with LogDNA](images/observability02.png)
+    [ ![Created IBM Log Analysis with LogDNA](images/observability02.png) ](images/observability02.png)
 
 
 ## Step 2: Connect your Kubernetes cluster to LogDNA
@@ -41,17 +39,13 @@ To collect logs from IKS cluster and related applications, LogDNA agent will be 
 
 1. Click on the `Connect` button next to the `Logging`. This step connects your cluster to the LogDNA instance.
 
-1. Select the `Region` where LogDNA instance was provisioned, for example `Washington DC`.
+1. Select the `Region` where LogDNA instance was provisioned, for example `Dallas`.
 
-1. Select your LogDNA instance.
+1. Select your LogDNA instance. Uncheck the `Use private endpoint` box. Click the `Connect` button to install LogDNA agent on all IKS cluster nodes.
 
     ![Pick LogDNA instance](images/install-logdna-agent.png)
 
-1. Click the `Connect` button to install LogDNA agent on all IKS cluster nodes.
-
-    !["To create IBM Log Analysis with LogDNA"](images/iks-cluster-overview02.png)
-
-1. Previous step creates a set of resources under `ibm-observe` namespace. To view those changes, run the command as shown below from the CLI environment:
+1. The connect or the agent install step creates a set of resources under `ibm-observe` namespace. To view those changes, run the command as shown below from the CLI environment:
 
     ```bash
     kubectl get all -n ibm-observe
@@ -73,9 +67,12 @@ To collect logs from IKS cluster and related applications, LogDNA agent will be 
 
     ![Launch LogDNA](images/launch-logdna.png)
 
-1. The Dashboard should open up with some existing log statements (5020 lines) from the cluster that does not pertain to the application workload.
-    ![LogDNA console](images/launch-console.png)
+1. The Dashboard should open up with some existing log statements from the cluster that pertains to the Kubernetes system pods.
+    [ ![LogDNA console](images/launch-console.png)](images/launch-console.png)
 
-1. LogDNA is ready to collect logs from applications in the cluster and the cluster itself. We will dive deeper into log analysis in the later labs.
+1. Check the options available under `Filter` dropdowns.
+    ![LogDNA filters](images/logdna-console-filters.png)
+
+1. LogDNA is ready to collect logs from applications in the cluster and the cluster itself. We will dive deeper into log analysis and the use of filters in the later labs.
 
 

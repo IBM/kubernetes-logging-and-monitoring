@@ -6,7 +6,7 @@ metadata:
   name: api-ingress
 spec:
   rules:
-  - host: petclinic.rj-iks-monitoring-2bef1f4b4097001da9502000c44fc2b2-0000.us-south.containers.appdomain.cloud
+  - host: petclinic.<INGRESS_SUBDOMAIN>
     http:
       paths:
       - path: /(.*)

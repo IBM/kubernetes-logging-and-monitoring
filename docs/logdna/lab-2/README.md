@@ -4,7 +4,16 @@ In this lab, you will deploy the `Petclinic` application into your kubernetes cl
 
 ## Step 1: Deploy the Petclinic application
 
-In the `IBM Cloud Shell`, deploy the sample petclinic application.
+Use the `IBM Cloud Shell` to deploy the sample Petclinic application.
+
+1. Get the source code from the Git repo
+
+    Clone the repo. Run the commands listed from the the `IBM Cloud Shell`.
+
+    ```bash
+    git clone https://github.com/IBM/kubernetes-logging-and-monitoring.git
+    cd kubernetes-logging-and-monitoring/src
+    ```
 
 1. Deploy four microservices of the sample petclinic application by running the command below: 
     ```

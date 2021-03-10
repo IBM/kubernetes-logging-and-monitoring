@@ -104,7 +104,7 @@ Open the LogDNA console like we did in the prevous lab.
 
 1. LogDNA console displays everything by default.
 
-    ![LogDNA Landing](images/logdna01.png)
+    [ ![LogDNA Landing](images/logdna01.png) ](images/logdna01.png)
 
 1. LogDNA live-streams all log entries by default. You may turn OFF/ON `LIVE` log stream via the `LIVE` toggle button at the bottom right corner.
 
@@ -115,7 +115,7 @@ If you know what you are looking for, it's easy and convenient to search log ent
 
 1. In the `Search` input box located at the bottom of the page in the LogDNA UI, enter `GET "/owners"` and press ENTER.
 
-    ![Log search](images/logdna02.png)
+    [ ![Log search](images/logdna02.png) ](images/logdna02.png)
 
 1. Review the search result. All remaining log entries contains string `GET "/owners"`.
 
@@ -123,13 +123,13 @@ If you know what you are looking for, it's easy and convenient to search log ent
 
 1. This displays detail information of the log entry.
 
-    !["access_iks_cluster"](images/logdna19.png)
+    [ !["access_iks_cluster"](images/logdna19.png) ](images/logdna19.png)
 
 1. Select `View in context`.
 
 1. The log line will be displayed in context of other log lines from that host, app, or both. This information is helpful when troubleshooting a problem.
 
-    !["access_iks_cluster"](images/logdna20.png)
+    [ !["access_iks_cluster"](images/logdna20.png) ](images/logdna20.png)
 
 1. Select `EVERYTHING` in the top-left corner to clear the searching criteria and restore all log entries.
 
@@ -143,32 +143,34 @@ If you know what you are looking for, it's easy and convenient to search log ent
 
 1. LogDNA jumps to a specific timeframe, Click the icon next to the input box to find the other time formats within your retention period.
 
-    !["access_iks_cluster"](images/logdna03.png)
+    [ !["access_iks_cluster"](images/logdna03.png) ](images/logdna03.png)
 
 1. Select the `Toggle Viewer Tools` icon at the bottom-right.
+
     * Enter `error` as your highlight term in the first field and press ENTER.
     * Enter `container` as your highlight term in the second field and press ENTER.
     * Click the `Toggle Viewer Tools` icon to close the pop-up window.
 
-    !["access_iks_cluster"](images/logdna04.png)
+    [ !["access_iks_cluster"](images/logdna04.png) ](images/logdna04.png)
 
 1. Click on `Toggle Timeline` icon to see log entries at a specific time of a day.
 
-    !["access_iks_cluster"](images/logdna05.png)
+    [ !["access_iks_cluster"](images/logdna05.png) ](images/logdna05.png)
 
 ## Step 3 - Filter logs for a specific container
 
 You can filter logs by tags, sources, containers or levels.
+
 * Tags: related to IKS clusters
 * Sources: related to IKS pods
-* Containers: related to IKS containers. Since one containers typically runs one microservice per cloud native development best practice, each container should represent one microservice. For example, `customers` container represents `customers` service component.
+* Containers: related to IKS containers. Since one container typically runs one microservice per cloud native development best practice, each container should represent one microservice. For example, `customers` container represents `customers` service component.
 * Levels: related to log level, for example error or debug.
 
 To filter logs,
 
-1. On LogDNA UI, select `EVERYTHING` in the top-left corner to clear the searching criteria and restore all log entries.
+1. On LogDNA UI, select `EVERYTHING` in the top left corner to clear the searching criteria and restore all log entries.
 
-    !["access_iks_cluster"](images/logdna06.png)
+    [ !["Log Filter"](images/logdna06.png) ](images/logdna06.png)
 
 1. Select `Tags` dropdown list on the top. You can filter log entries related to a single cluster or a set of clusters. For this exercise, you don't have to change anything.
 
@@ -178,13 +180,13 @@ To filter logs,
 
 1. Select `Customers` checkbox under the `Containers` section and `Apply`. Now, you see log entries for `Customers` service component only. Most of the entries are for `DEBUG` purpose.
 
-    !["access_iks_cluster"](images/logdna12.png)
+    [ !["Apply filter"](images/logdna12.png) ](images/logdna12.png)
 
 1. Select `Levels` dropdown list, you may filter log entries related to one log level or a set of log levels.
 
 1. Select everything except `DEBUG` log level and `Apply`. 
 
-1. You may see no log entry or a few lines of log entries, depend on your log entries.
+1. You may see no log entry or a few lines of log entries, depending on your log entries.
 
 
 ## Step 4 - Create a new view
