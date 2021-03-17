@@ -20,16 +20,16 @@ nav:
       - Lab 3. Analyze Logs: logdna/lab-3/README.md
       - Lab 4. Log Streaming: logdna/lab-4/README.md
   - Monitoring:
-    - Sysdig:
+    - Sysdig Monitor:
       - Introduction: sysdig/lab-0/README.md
-      - Lab 0. Sysdig Install: sysdig/lab-1/README.md
-      - Lab 1. Hookup: sysdig/lab-2/README.md
+      - Lab 1. Sysdig Install: sysdig/lab-1/README.md
+      - Lab 2. Explore Monitor: sysdig/lab-2/README.md
+      - Lab 3. Custom Metrics: sysdig/lab-3/README.md
 
   - References:
     - Additional Resources: resources/RESOURCES.md
     - Contributors: resources/CONTRIBUTORS.md
-    - MkDocs Cheatsheet: resources/MKDOCS.md
-    - Admin Guide: resources/ADMIN.md
+
 
 ## DO NOT CHANGE BELOW THIS LINE
 
