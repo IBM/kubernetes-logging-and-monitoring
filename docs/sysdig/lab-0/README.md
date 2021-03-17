@@ -1,7 +1,5 @@
 # Sysdig Introduction
 
-# Manage logs with LogDNA in IBM Cloud
-
  `IBM Cloud Monitoring with Sysdig`, a fully managed enterprise-grade monitoring service for application visibility, alerting, and troubleshooting. IBM Cloud Monitoring with Sysdig is used by enterprise development and IT teams that build, ship, and run business-critical applications at scale.
 
 Read the [blog](https://www.ibm.com/cloud/blog/announcements/increase-observability-by-using-ibm-cloud-monitoring-with-sysdig).
@@ -23,6 +21,6 @@ There is lots of great information, tutorials, articles, etc on the [IBM Develop
 - [IBM Cloud Monitoring with Sysdig Documentation](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started)
 - [Sysdig Documentation](https://docs.sysdig.com/?lang=en)
 - [Sysdig Blog](https://sysdig.com/blog/)
-
+- [Golden Signals](https://sysdig.com/blog/golden-signals-kubernetes/)
 
 

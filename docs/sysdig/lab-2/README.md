@@ -1,5 +1,7 @@
 # Monitoring Kubernetes infrastructure with Sysdig Monitor 
 
+As a pre-requisite to this lab, complete the setup instructions desribed [here](../../setup/README.md).
+
 Deploy sample `Petclinic` application to IKS cluster as described here in this [exercise](../../logdna/lab-2/). Skip the optional MySQL section. This exercise deploys the application and sets the ingress routes to access the application and the related microservices.
 
 ## Step 1: Overview of the infrastructure
